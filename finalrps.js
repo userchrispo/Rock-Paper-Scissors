@@ -10,11 +10,28 @@ if (score === null) {
   };
 }
 
+document.querySelectorAll(".move-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const choice = button.getAttribute("data-choice");
+    playGame(choice);
+  });
+});
+
+document.querySelector(".rs-button").addEventListener("click", () => {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem("score");
+  document.querySelector(".js-result").innerHTML = "";
+  document.querySelector(".js-moves").innerHTML = "";
+  updateScoreElement();
+});
+
+document.querySelector(".ap-button").addEventListener("click", () => {
+  autoPlay();
+});
+
 updateScoreElement();
-document.querySelector(".js-result").innerHTML = results;
-document.querySelector(
-  ".js-moves"
-).innerHTML = `You ${playerMove} - ${computerMove} Computer`;
 
 function pickComputerMove() {
   const randomNumber = Math.random();
@@ -42,7 +59,7 @@ function autoPlay() {
   } else {
     clearInterval(intervalId);
     isAutoPlaying = false;
-    document.querySelector('.ap-button').innerHTML = 'Auto Play'
+    document.querySelector(".ap-button").innerHTML = "Auto Play";
   }
 }
 
