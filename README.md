@@ -1,6 +1,6 @@
 # ✊✋✌️ Rock Paper Scissors
 
-A tiny command-line game that lets you battle the computer in the classic **Rock Paper Scissors** showdown.
+Battle the computer in the classic **Rock Paper Scissors** Game.
 
 ## How to Play
 1. Run the script (see below).  
